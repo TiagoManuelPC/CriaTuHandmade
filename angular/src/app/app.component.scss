@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -7,82 +8,72 @@ html, body {
   justify-content: center;
   align-items: center;
 }
-  
-  .full-screen-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .primary-image {
-    margin-top: 10px;
-    max-width: 500px; /* Adjust the maximum width to reduce the size */
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    margin: 20px 0;
-    color: #007bff;
-  }
-  
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .social-link svg {
-    width: 40px;
-    height: 40px;
-    fill: #fff;
-    transition: fill 0.3s;
-  }
-  
-  .social-link svg:hover {
-    fill: #007bff;
-  }
 
-  .gallery-container {
-    width: 80%; /* Use 80% of the width */
-    margin: 20px auto;
-    background: #fff;
-  }
-  
-  .contact-section {
-    width: 80%;
-    margin: 20px auto;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    color: #333;
-  }
-  
-  .contact-section h2 {
-    margin-bottom: 20px;
-  }
-  
-  .contact-section a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .contact-section a:hover {
-    text-decoration: underline;
-  }
-  
+.full-screen-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
 
-  /* Add responsive styles */
-@media (max-width: 1080px) {
-  .primary-image {
-    margin-top: 10px;
-    max-width: 400; /* Adjust the maximum width to reduce the size */
-    height: auto;
-    margin-bottom: 20px;
-  }
+.primary-image {
+  margin-top: 10px;
+  /* Adjust the maximum width to reduce the size */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 20px 0;
+  color: #007bff;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.social-link svg {
+  width: 40px;
+  height: 40px;
+  fill: #fff;
+  transition: fill 0.3s;
+}
+
+.social-link svg:hover {
+  fill: #007bff;
+}
+
+.gallery-container {
+  width: 80%;
+  /* Use 80% of the width */
+  margin: 20px auto;
+  background: #fff;
+}
+
+.contact-section {
+  width: 80%;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  color: #333;
+}
+
+.contact-section h2 {
+  margin-bottom: 20px;
+}
+
+.contact-section a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
 }

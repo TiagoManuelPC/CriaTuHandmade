@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
 	thumnailPosition: "top" | "left" | "right" | "bottom" = 'left';
 	isMobile = window.innerWidth <= 1080;
 	width = 'w-50'
+	imageMaxWidth = '500px';
 
 	constructor() { }
 
@@ -63,7 +64,7 @@ export class AppComponent implements OnInit {
 	];
 
 	ngOnInit(): void {
-		if (this.isMobile) this.thumnailPosition = 'bottom';
+		if (this.isMobile) this.addMovileView();
 	}
 
 	@HostListener('window:resize', ['$event'])
@@ -76,11 +77,13 @@ export class AppComponent implements OnInit {
 	addMovileView() {
 		this.width = 'w-75';
 		this.thumnailPosition = 'bottom';
+		this.imageMaxWidth = '300px';
 	}
 
 	addDesktopView() {
 		this.width = 'w-50';
 		this.thumnailPosition = 'left';
+		this.imageMaxWidth = '500px';
 	}
  
 }
