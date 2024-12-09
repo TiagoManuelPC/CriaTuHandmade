@@ -10,7 +10,7 @@ import { GalleryItem, ImageItem } from 'ng-gallery';
 export class AppComponent implements OnInit {
 	
 	thumnailPosition: "top" | "left" | "right" | "bottom" = 'left';
-	isMobile = window.innerWidth <= 768;
+	isMobile = window.innerWidth <= 1080;
 	width = 'w-50'
 
 	constructor() { }
@@ -69,7 +69,7 @@ export class AppComponent implements OnInit {
 	@HostListener('window:resize', ['$event'])
   	onResize() {
 		console.log(window.innerWidth);
-    	this.isMobile = window.innerWidth <= 768;
+    	this.isMobile = window.innerWidth <= 1080;
 		this.isMobile ? this.addMovileView() : this.addDesktopView();
   	}
 

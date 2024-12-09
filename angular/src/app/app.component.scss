@@ -78,8 +78,11 @@ html, body {
   
 
   /* Add responsive styles */
-@media (max-width: 768px) {
-  .mobile-thumbs-bottom {
-    flex-direction: column-reverse;
+@media (max-width: 1080px) {
+  .primary-image {
+    margin-top: 10px;
+    max-width: 400; /* Adjust the maximum width to reduce the size */
+    height: auto;
+    margin-bottom: 20px;
   }
 }
