@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { GalleryItem, ImageItem } from 'ng-gallery';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    standalone: false
 })
 export class AppComponent {
   title = 'angular';
