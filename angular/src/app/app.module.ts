@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { importProvidersFrom } from '@angular/core';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { GalleryModule } from 'ng-gallery';
+import { GALLERY_CONFIG, GalleryConfig, GalleryModule } from 'ng-gallery';
 
 @NgModule({
   declarations: [
@@ -21,8 +18,13 @@ import { GalleryModule } from 'ng-gallery';
     GalleryModule
   ],
   providers: [
-    provideAnimations(),
-    importProvidersFrom(GalleryModule)
+    {
+      provide: GALLERY_CONFIG,
+      useValue: {
+        autoHeight: true,
+        imageSize: 'cover'
+      } as GalleryConfig
+    }
   ],
   bootstrap: [AppComponent]
 })
