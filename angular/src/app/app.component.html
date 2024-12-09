@@ -37,8 +37,8 @@
 		<h2>Contact Us</h2>
 		<a href="mailto:cria.tu@outlook.com">cria.tu&#64;outlook.com</a>
 	</div>
-	<div class="w-50 mb-5">
-		<gallery [items]="images" [thumbPosition]="'left'" thumbs thumbSlidingDisabled="false"
+	<div class="mb-5" [ngClass]="width">
+		<gallery [items]="images" [thumbPosition]="thumnailPosition" thumbs thumbSlidingDisabled="false"
 			[autoplay]="true" [autoHeight]="false" [imageSize]="'contain'" bullets bulletPosition="bottom"
 			counter counterPosition="top">
 		</gallery>

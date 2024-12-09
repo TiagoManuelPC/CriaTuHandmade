@@ -75,3 +75,11 @@ html, body {
   .contact-section a:hover {
     text-decoration: underline;
   }
+  
+
+  /* Add responsive styles */
+@media (max-width: 768px) {
+  .mobile-thumbs-bottom {
+    flex-direction: column-reverse;
+  }
+}
