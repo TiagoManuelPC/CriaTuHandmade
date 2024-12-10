@@ -13,8 +13,11 @@ export class AppComponent implements OnInit {
 	isMobile = window.innerWidth <= 1080;
 	width = 'w-50'
 	imageMaxWidth = '500px';
+	isDarkMode: boolean;
 
-	constructor() { }
+	constructor() {
+		this.isDarkMode = false;
+	}
 
 	images: GalleryItem[] = [
 		new ImageItem({
@@ -64,6 +67,9 @@ export class AppComponent implements OnInit {
 	];
 
 	ngOnInit(): void {
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			console.log('dark mode');
+		}
 		if (this.isMobile) this.addMovileView();
 	}
 
@@ -85,5 +91,10 @@ export class AppComponent implements OnInit {
 		this.thumnailPosition = 'left';
 		this.imageMaxWidth = '500px';
 	}
+
+	toggleTheme() {
+		this.isDarkMode = !this.isDarkMode;
+		// this.themeService.setDarkMode(this.isDarkMode);
+	  }
  
 }

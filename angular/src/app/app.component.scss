@@ -18,6 +18,13 @@ body {
   color: #fff;
 }
 
+.dark-mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
 .primary-image {
   margin-top: 10px;
   /* Adjust the maximum width to reduce the size */
