@@ -8,7 +8,7 @@ import { GalleryItem, ImageItem } from 'ng-gallery';
 	standalone: false
 })
 export class AppComponent implements OnInit {
-	
+
 	thumnailPosition: "top" | "left" | "right" | "bottom" = 'left';
 	isMobile = window.innerWidth <= 1080;
 	width = 'w-50'
@@ -96,5 +96,5 @@ export class AppComponent implements OnInit {
 		this.isDarkMode = !this.isDarkMode;
 		// this.themeService.setDarkMode(this.isDarkMode);
 	  }
- 
+
 }
