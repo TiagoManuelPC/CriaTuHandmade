@@ -22,47 +22,58 @@ export class AppComponent implements OnInit {
 	images: GalleryItem[] = [
 		new ImageItem({
 			src: 'assets/images/xmax1.jpeg',
-			thumb: 'assets/images/xmax1.jpeg'
+			thumb: 'assets/images/xmax1.jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (2).jpeg',
-			thumb: 'assets/images/xmax (2).jpeg'
+			thumb: 'assets/images/xmax (2).jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (3).jpeg',
-			thumb: 'assets/images/xmax (3).jpeg'
+			thumb: 'assets/images/xmax (3).jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (4).jpeg',
-			thumb: 'assets/images/xmax (4).jpeg'
+			thumb: 'assets/images/xmax (4).jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (5).jpeg',
-			thumb: 'assets/images/xmax (5).jpeg'
+			thumb: 'assets/images/xmax (5).jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (6).jpeg',
-			thumb: 'assets/images/xmax (6).jpeg'
+			thumb: 'assets/images/xmax (6).jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (7).jpeg',
-			thumb: 'assets/images/xmax (7).jpeg'
+			thumb: 'assets/images/xmax (7).jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (8).jpeg',
-			thumb: 'assets/images/xmax (8).jpeg'
+			thumb: 'assets/images/xmax (8).jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (9).jpeg',
-			thumb: 'assets/images/xmax (9).jpeg'
+			thumb: 'assets/images/xmax (9).jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (10).jpeg',
-			thumb: 'assets/images/xmax (10).jpeg'
+			thumb: 'assets/images/xmax (10).jpeg',
+			alt: 'Image alt'
 		}),
 		new ImageItem({
 			src: 'assets/images/xmax (11).jpeg',
-			thumb: 'assets/images/xmax (11).jpeg'
+			thumb: 'assets/images/xmax (11).jpeg',
+			alt: 'Image alt'
 		}),
 	];
 
