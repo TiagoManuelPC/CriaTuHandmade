@@ -64,47 +64,47 @@
 			<button class="menu-toggle" (click)="toggleMenu()">☰</button>
 		</div>
 	</div>
-	
+
 
 	<div class="content-container" (click)="closeMenu($event)">
 		<div class="side-menu" [class.open]="isMenuOpen" (click)="$event.stopPropagation()">
-		  <button class="close-btn" (click)="toggleMenu()">×</button>
-		  <ul>
-			<li><a href="https://kamleshyadav.com/templatemonster/handicraft/" aria-current="page">Home</a></li>
-			<li><a href="https://kamleshyadav.com/templatemonster/handicraft/about/">About</a></li>
-			<li><a href="https://kamleshyadav.com/templatemonster/handicraft/services/">Services</a></li>
-			<li><a href="https://kamleshyadav.com/templatemonster/handicraft/shop/">Shop</a></li>
-			<li><a href="https://kamleshyadav.com/templatemonster/handicraft/blog/">Blog</a></li>
-			<li><a href="https://kamleshyadav.com/templatemonster/handicraft/contact/">Contact</a></li>
-		  </ul>
+			<button class="close-btn" (click)="toggleMenu()">×</button>
+			<ul>
+				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/" aria-current="page">Home</a></li>
+				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/about/">About</a></li>
+				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/services/">Services</a></li>
+				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/shop/">Shop</a></li>
+				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/blog/">Blog</a></li>
+				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/contact/">Contact</a></li>
+			</ul>
 		</div>
-		
-  
-	<img src="../assets/images/criatulogo.png" alt="Criatulogo" class="primary-image"
-		[ngStyle]="{'max-width': imageMaxWidth}">
 
-	<div class="social-icons">
-		
-		<a href="https://www.instagram.com/cria.tu/" target="_blank" class="social-link">
-			<img src="../assets/social-logos/Instagram_Glyph_Gradient.png" alt="Instagram" width="30" height="30">
-		</a>
-		<a href="https://www.etsy.com/uk/shop/CriaTuHandmade" target="_blank" class="social-link">
-			<img src="../assets/social-logos/etsy.png" alt="Etsy" width="50" height="23.7">
-		</a>
-		<a href="https://www.facebook.com/criatu.art" target="_blank" class="social-link">
-			<img src="../assets/social-logos/Facebook_Logo_Primary.png" alt="Facebook" width="30" height="30">
-		</a>
+
+		<img src="../assets/images/criatulogo.png" alt="Criatulogo" class="primary-image"
+			[ngStyle]="{'max-width': imageMaxWidth}">
+
+		<div class="social-icons">
+
+			<a href="https://www.instagram.com/cria.tu/" target="_blank" class="social-link">
+				<img src="../assets/social-logos/Instagram_Glyph_Gradient.png" alt="Instagram" width="30" height="30">
+			</a>
+			<a href="https://www.etsy.com/uk/shop/CriaTuHandmade" target="_blank" class="social-link">
+				<img src="../assets/social-logos/etsy.png" alt="Etsy" width="50" height="23.7">
+			</a>
+			<a href="https://www.facebook.com/criatu.art" target="_blank" class="social-link">
+				<img src="../assets/social-logos/Facebook_Logo_Primary.png" alt="Facebook" width="30" height="30">
+			</a>
+		</div>
+		<div class="contact-section">
+			<h2>Contact Us</h2>
+			<a href="mailto:cria.tu@outlook.com">cria.tu&#64;outlook.com</a>
+		</div>
+
 	</div>
-	<div class="contact-section">
-		<h2>Contact Us</h2>
-		<a href="mailto:cria.tu@outlook.com">cria.tu&#64;outlook.com</a>
-	</div>
-	<div class="mb-5" [ngClass]="width">
+	<div class="mb-5" [ngClass]="width" (click)="closeMenu($event)">
 		<gallery [items]="images" [thumbPosition]="thumnailPosition" thumbs thumbSlidingDisabled="false"
 			[autoplay]="true" [autoHeight]="false" [imageSize]="'contain'" bullets bulletPosition="bottom" counter
 			counterPosition="top">
 		</gallery>
 	</div>
-</div>
-
 </div>
