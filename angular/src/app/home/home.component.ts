@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 	imageMaxWidth = '500px';
 
 	constructor() {
+		this.onResize()
 	}
 
 	images: GalleryItem[] = [
