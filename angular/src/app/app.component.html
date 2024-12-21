@@ -42,12 +42,13 @@
 
 			<div class="tab-menu">
 				<ul>
-					<li><a href="" aria-current="page">Home</a></li>
-					<li><a href="">About</a></li>
-					<li><a href="">Services</a></li>
-					<li><a href="">Shop</a></li>
-					<li><a href="">Blog</a></li>
-					<li><a href="">Contact</a></li>
+					<!-- <li><a href="" aria-current="page">Home</a></li> -->
+					<li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+					<li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
+					<!-- <li><a routerLink="/services" routerLinkActive="active-link">Services</a></li>
+					<li><a routerLink="/shop" routerLinkActive="active-link">Shop</a></li>
+					<li><a routerLink="/blog" routerLinkActive="active-link">Blog</a></li>
+					<li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li> -->
 				</ul>
 			</div>
 
@@ -66,45 +67,30 @@
 	</div>
 
 
-	<div class="content-container" (click)="closeMenu($event)">
+	<div class="content-container" (click)="closeMenu()">
 		<div class="side-menu" [class.open]="isMenuOpen" (click)="$event.stopPropagation()">
 			<button class="close-btn" (click)="toggleMenu()">×</button>
 			<ul>
-				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/" aria-current="page">Home</a></li>
-				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/about/">About</a></li>
-				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/services/">Services</a></li>
-				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/shop/">Shop</a></li>
-				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/blog/">Blog</a></li>
-				<li><a href="https://kamleshyadav.com/templatemonster/handicraft/contact/">Contact</a></li>
+				<li>
+					<a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+						Home
+					</a>
+				</li>
+				<li><a routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">About</a></li>
+				<li><a routerLink="/services" routerLinkActive="active-link" (click)="closeMenu()">Services</a></li>
+				<!-- <li><a routerLink="/shop" routerLinkActive="active-link" (click)="closeMenu()">Shop</a></li>
+				<li><a routerLink="/blog" routerLinkActive="active-link" (click)="closeMenu()">Blog</a></li>
+				<li><a routerLink="/contact" routerLinkActive="active-link" (click)="closeMenu()">Contact</a></li> -->
 			</ul>
 		</div>
 
+		 <!-- Scroll to top button -->
+		 <button class="scroll-top" [class.show]="isScrolled" [class.hide]="!isScrolled" (click)="scrollToTop()">↑</button>
 
-		<img src="../assets/images/criatulogo.png" alt="Criatulogo" class="primary-image"
-			[ngStyle]="{'max-width': imageMaxWidth}">
 
-		<div class="social-icons">
-
-			<a href="https://www.instagram.com/cria.tu/" target="_blank" class="social-link">
-				<img src="../assets/social-logos/Instagram_Glyph_Gradient.png" alt="Instagram" width="30" height="30">
-			</a>
-			<a href="https://www.etsy.com/uk/shop/CriaTuHandmade" target="_blank" class="social-link">
-				<img src="../assets/social-logos/etsy.png" alt="Etsy" width="50" height="23.7">
-			</a>
-			<a href="https://www.facebook.com/criatu.art" target="_blank" class="social-link">
-				<img src="../assets/social-logos/Facebook_Logo_Primary.png" alt="Facebook" width="30" height="30">
-			</a>
+		 <!-- <div class="blob"></div> -->
+		<div class="w-100">
+			<router-outlet />
 		</div>
-		<div class="contact-section">
-			<h2>Contact Us</h2>
-			<a href="mailto:cria.tu@outlook.com">cria.tu&#64;outlook.com</a>
-		</div>
-
-	</div>
-	<div class="mb-5" [ngClass]="width" (click)="closeMenu($event)">
-		<gallery [items]="images" [thumbPosition]="thumnailPosition" thumbs thumbSlidingDisabled="false"
-			[autoplay]="true" [autoHeight]="false" [imageSize]="'contain'" bullets bulletPosition="bottom" counter
-			counterPosition="top">
-		</gallery>
 	</div>
 </div>
