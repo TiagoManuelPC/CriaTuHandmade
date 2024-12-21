@@ -14,10 +14,17 @@ export class AppComponent implements OnInit {
 	width = 'w-50'
 	imageMaxWidth = '500px';
 	isDarkMode: boolean;
+	isScrolled = false;
+	isMenuOpen = false;
 
 	constructor() {
 		this.isDarkMode = false;
 	}
+
+	@HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 50;
+  }
 
 	images: GalleryItem[] = [
 		new ImageItem({
@@ -82,6 +89,16 @@ export class AppComponent implements OnInit {
 			console.log('dark mode');
 		}
 		if (this.isMobile) this.addMovileView();
+	}
+
+	toggleMenu() {
+		this.isMenuOpen = !this.isMenuOpen;
+	  }
+
+	closeMenu(event: Event) {
+		if (this.isMenuOpen) {
+		  this.isMenuOpen = false;
+		}
 	}
 
 	@HostListener('window:resize', ['$event'])
