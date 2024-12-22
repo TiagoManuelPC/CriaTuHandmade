@@ -1,0 +1,29 @@
+<div class="tab-container">
+	<div class="services-container">
+		<div class="services-header">
+			<h1>Our Services</h1>
+			<p>Discover the wide range of services we offer to meet your needs</p>
+		</div>
+
+		<div class="service-section" *ngFor="let section of serviceSections">
+			<div class="section-header">
+				<h2>{{ section.title }}</h2>
+				<p>{{ section.description }}</p>
+			</div>
+
+			<div class="services-cards">
+				<div class="card" *ngFor="let service of section.services" (click)="openService(service.title, section.title)">
+					<div class="card-inner">
+						<div class="card-front">
+							<img [src]="service.image" alt="Service Image">
+						</div>
+						<div class="card-back d-flex flex-column justify-content-center align-items-center">
+							<h4>{{service.title}}</h4>
+							<p>{{ service.description }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
