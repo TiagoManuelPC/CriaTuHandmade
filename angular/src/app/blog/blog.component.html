@@ -1,6 +1,46 @@
-<div class="tab-container">
-	<div class="under-construction">
-		<h1>Under Construction</h1>
-		<p>We are working hard to bring you this page. Please check back later.</p>
+<div class="blog-container">
+	<div class="blog-header">
+	  <h1>Our Blog</h1>
+	  <p>Stay updated with our latest news and articles</p>
+	</div>
+  
+	<div class="blog-content">
+	  <div class="blog-posts">
+		<div class="blog-post" *ngFor="let post of blogPosts">
+		  <h2>{{ post.title }}</h2>
+		  <p class="post-date">{{ post.date }}</p>
+		  <p class="post-excerpt">{{ post.excerpt }}</p>
+		  <a [routerLink]="['/blog', post.id]" class="read-more">Read More</a>
+		</div>
 	  </div>
-</div>
+  
+	  <div class="blog-sidebar">
+		<div class="sidebar-section">
+		  <h3>Categories</h3>
+		  <ul>
+			<li *ngFor="let category of categories">
+			  <a [routerLink]="['/blog/category', category.id]">{{ category.name }}</a>
+			</li>
+		  </ul>
+		</div>
+  
+		<div class="sidebar-section">
+		  <h3>Recent Posts</h3>
+		  <ul>
+			<li *ngFor="let recentPost of recentPosts">
+			  <a [routerLink]="['/blog', recentPost.id]">{{ recentPost.title }}</a>
+			</li>
+		  </ul>
+		</div>
+  
+		<div class="sidebar-section">
+		  <h3>Useful Links</h3>
+		  <ul>
+			<li><a href="https://www.example.com" target="_blank">Example Link 1</a></li>
+			<li><a href="https://www.example.com" target="_blank">Example Link 2</a></li>
+			<li><a href="https://www.example.com" target="_blank">Example Link 3</a></li>
+		  </ul>
+		</div>
+	  </div>
+	</div>
+  </div>

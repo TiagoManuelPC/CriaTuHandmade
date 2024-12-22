@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     CarouselModule,
     BrowserAnimationsModule,
     GalleryModule,
-    MatIconModule
-    
+    MatIconModule,
+    FormsModule
   ],
   providers: [
     {
