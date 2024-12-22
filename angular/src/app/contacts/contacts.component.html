@@ -1,0 +1,49 @@
+<div class="contact-container">
+    <div class="contact-header">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you! Please fill out the form below or reach out to us through our contact information.</p>
+    </div>
+  
+    <div class="contact-content">
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" ngModel required></textarea>
+          </div>
+          <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+        </form>
+      </div>
+  
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Address:</strong> 123 Main Street, Anytown, USA</p>
+        <p><strong>Phone:</strong> (123) 456-7890</p>
+        <!-- <p><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></p> -->
+      </div>
+  
+      <div class="contact-map">
+        <h2>Our Location</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0864873153!2d144.963057915316!3d-37.81410797975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d8b8f8f8f8f8!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1614311234567!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+  
+      <div class="contact-social">
+        <h2>Follow Us</h2>
+        <div class="social-icons">
+          <a href="https://www.facebook.com" target="_blank"><img src="assets/social-logos/Facebook_Logo_Primary.png" alt="Facebook" width="30" height="30"></a>
+          <a href="https://www.twitter.com" target="_blank"><img src="assets/social-logos/Twitter_Logo_Blue.png" alt="Twitter" width="30" height="30"></a>
+          <a href="https://www.instagram.com" target="_blank"><img src="assets/social-logos/Instagram_Glyph_Gradient.png" alt="Instagram" width="30" height="30"></a>
+          <a href="https://www.linkedin.com" target="_blank"><img src="assets/social-logos/LinkedIn_Logo.png" alt="LinkedIn" width="30" height="30"></a>
+        </div>
+      </div>
+    </div>
+  </div>

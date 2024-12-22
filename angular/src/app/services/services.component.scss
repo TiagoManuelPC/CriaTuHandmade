@@ -1,0 +1,116 @@
+.services-container {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.services-header {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.services-header h1 {
+	font-size: 2.5rem;
+	color: #333;
+}
+
+.services-header p {
+	font-size: 1.2rem;
+	color: #666;
+}
+
+.service-section {
+	margin-bottom: 40px;
+}
+
+.section-header {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.section-header h2 {
+	font-size: 2rem;
+	color: #333;
+}
+
+.section-header p {
+	font-size: 1rem;
+	color: #666;
+}
+
+.services-cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+
+.card {
+	width: 300px;
+	height: 200px;
+	perspective: 1000px;
+	margin-bottom: 20px;
+	border: none;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+	transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	border: none;
+}
+
+.card-front {
+	background-color: #fff;
+}
+
+.card-front img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.card-text {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	font-size: 1.2rem;
+}
+
+.card-back {
+	background-color: #CC3366;
+	color: #fff;
+	transform: rotateY(180deg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	border: none;
+}

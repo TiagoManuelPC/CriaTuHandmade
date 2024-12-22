@@ -1,6 +1,6 @@
 <div class="full-screen-container">
 	<div class="navigation-bar justify-content-between" [class.fixed]="isScrolled">
-		<div class="small-logo">
+		<div class="small-logo" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
 			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 				xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40" height="40"
 				viewBox="0 0 1417.3 1417.3" style="enable-background:new 0 0 1417.3 1417.3;" xml:space="preserve">
@@ -40,15 +40,14 @@
 		</div>
 		<div class="navigation d-flex align-items-center">
 
-			<div class="tab-menu">
+			<!-- <div class="tab-menu">
 				<ul>
-					<!-- <li><a href="" aria-current="page">Home</a></li> -->
 					<li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
 					<li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
-					<!-- <li><a routerLink="/services" routerLinkActive="active-link">Services</a></li>
+					<li><a routerLink="/services" routerLinkActive="active-link">Services</a></li>
 					<li><a routerLink="/shop" routerLinkActive="active-link">Shop</a></li>
 					<li><a routerLink="/blog" routerLinkActive="active-link">Blog</a></li>
-					<li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li> -->
+					<li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
 				</ul>
 			</div>
 
@@ -61,7 +60,7 @@
 						<a aria-current="page" href="#"><i class="fa fa-search"></i></a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<button class="menu-toggle" (click)="toggleMenu()">☰</button>
 		</div>
 	</div>
@@ -76,10 +75,10 @@
 						Home
 					</a>
 				</li>
-				<li><a routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">About</a></li>
-				<li><a routerLink="/services" routerLinkActive="active-link" (click)="closeMenu()">Services</a></li>
-				<!-- <li><a routerLink="/shop" routerLinkActive="active-link" (click)="closeMenu()">Shop</a></li>
-				<li><a routerLink="/blog" routerLinkActive="active-link" (click)="closeMenu()">Blog</a></li>
+				<!-- <li><a routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">About</a></li>
+				<li><a routerLink="/services" routerLinkActive="active-link" (click)="closeMenu()">Services</a></li> -->
+				<!-- <li><a routerLink="/shop" routerLinkActive="active-link" (click)="closeMenu()">Shop</a></li> -->
+				<!-- <li><a routerLink="/blog" routerLinkActive="active-link" (click)="closeMenu()">Blog</a></li>
 				<li><a routerLink="/contact" routerLinkActive="active-link" (click)="closeMenu()">Contact</a></li> -->
 			</ul>
 		</div>

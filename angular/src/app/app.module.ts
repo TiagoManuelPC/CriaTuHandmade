@@ -9,12 +9,19 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { ServicesComponent } from './services/services.component';
+import { BlogComponent } from './blog/blog.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    ServicesComponent,
+    BlogComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
@@ -22,8 +29,8 @@ import { AboutComponent } from './about/about.component';
     CarouselModule,
     BrowserAnimationsModule,
     GalleryModule,
-    MatIconModule
-    
+    MatIconModule,
+    FormsModule
   ],
   providers: [
     {
