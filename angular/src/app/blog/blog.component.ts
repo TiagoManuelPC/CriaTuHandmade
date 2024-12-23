@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { BlogPost } from '../interfaces/blog-post';
+import { isDevMode } from '@angular/core';
+
 
 @Component({
 	selector: 'app-blog-component',
@@ -18,10 +20,14 @@ export class BlogComponent implements OnInit {
 		date: Date.now(),
 	  };
 	constructor(private apiService: ApiService) {
+		if (isDevMode()) {
+			console.log('Running in development mode');
+		  } else {
+			console.log('Running in production mode');
+		  }
 	}
 
 	ngOnInit(): void {
-		console.log('Blog component initialized');
 		this.apiService.getData('blog-posts').subscribe(
 			(response) => {
 			  this.blogPosts = response;
