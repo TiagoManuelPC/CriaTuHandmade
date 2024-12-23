@@ -22,6 +22,7 @@ export class BlogComponent implements OnInit {
 
 	ngOnInit(): void {
 		console.log('Blog component initialized');
+		console.log(process.env['MONGODB_URI'])
 		this.apiService.getData('blog-posts').subscribe(
 			(response) => {
 			  this.blogPosts = response;
