@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { isDevMode } from '@angular/core';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -6,6 +7,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 	standalone: false
 })
 export class AppComponent implements OnInit {
+
 	isScrolled: boolean = false;
 	isMenuOpen: boolean = false;
 
@@ -32,5 +34,9 @@ export class AppComponent implements OnInit {
 
 	scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+
+	isDevMode(): any {
+		return isDevMode();
 	}
 }

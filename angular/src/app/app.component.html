@@ -40,7 +40,7 @@
 		</div>
 		<div class="navigation d-flex align-items-center">
 
-			<div class="tab-menu">
+			<div *ngIf="isDevMode()" class="tab-menu">
 				<ul>
 					<li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
 					<li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
@@ -51,7 +51,7 @@
 				</ul>
 			</div>
 
-			<div class="navigation-icons">
+			<div class="navigation-icons" *ngIf="isDevMode()">
 				<ul>
 					<li>
 						<a aria-current="page" href="#"><i class="fa fa-user"></i></a>
