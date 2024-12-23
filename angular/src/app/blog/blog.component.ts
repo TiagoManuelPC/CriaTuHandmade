@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { BlogPost } from '../interfaces/blog-post';
 
 @Component({
 	selector: 'app-blog-component',
@@ -6,42 +8,53 @@ import { Component, OnInit } from '@angular/core';
 	styleUrl: './blog.component.scss',
 	standalone: false
 })
+
 export class BlogComponent implements OnInit {
-	blogPosts = [
-		{
-		  id: 1,
-		  title: 'Blog Post Title 1',
-		  date: 'January 1, 2023',
-		  excerpt: 'This is a short excerpt of the blog post. It gives a brief overview of the content...'
-		},
-		{
-		  id: 2,
-		  title: 'Blog Post Title 2',
-		  date: 'February 1, 2023',
-		  excerpt: 'This is a short excerpt of the blog post. It gives a brief overview of the content...'
-		},
-		{
-		  id: 3,
-		  title: 'Blog Post Title 3',
-		  date: 'March 1, 2023',
-		  excerpt: 'This is a short excerpt of the blog post. It gives a brief overview of the content...'
-		}
-	  ];
-	
-	  categories = [
-		{ id: 1, name: 'Category 1' },
-		{ id: 2, name: 'Category 2' },
-		{ id: 3, name: 'Category 3' }
-	  ];
-	
-	  recentPosts = [
-		{ id: 1, title: 'Recent Post 1' },
-		{ id: 2, title: 'Recent Post 2' },
-		{ id: 3, title: 'Recent Post 3' }
-	  ];
-	constructor() {
+	blogPosts: BlogPost[] = [];
+
+	newPost: BlogPost = {
+		title: '',
+		post: '',
+		date: Date.now(),
+	  };
+	constructor(private apiService: ApiService) {
 	}
 
 	ngOnInit(): void {
+		console.log('Blog component initialized');
+		this.apiService.getData('blog-posts').subscribe(
+			(response) => {
+			  this.blogPosts = response;
+			  console.log(this.blogPosts)
+			},
+			(error) => {
+			  console.error('Error fetching data:', error);
+			}
+		  );
+	}
+
+	addPost(post: BlogPost): void {
+		const newItem = { title: 'the new post', post: 'New Item', date: Date.now() };
+		this.apiService.addData('blog-posts', post).subscribe((data) => {
+		this.blogPosts.push(data);
+		console.log('Item added:', data);
+		});
+	  }
+
+	  onSubmit(): void {
+		const newPost: BlogPost = {
+		  title: this.newPost.title,
+		  post: this.newPost.post,
+		  date: Date.now(),
+		};
+	
+		this.addPost(newPost);
+	
+		// Reset the form
+		this.newPost = {
+		  title: '',
+		  post: '',
+		  date: Date.now(),
+		};
 	}
 }
