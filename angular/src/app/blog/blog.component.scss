@@ -98,3 +98,55 @@
   .sidebar-section ul li a:hover {
 	text-decoration: underline;
   }
+
+  .blog-form {
+	flex: 1;
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-form h2 {
+	font-size: 1.8rem;
+	color: #333;
+	margin-bottom: 20px;
+  }
+  
+  .form-group {
+	margin-bottom: 20px;
+  }
+  
+  .form-group label {
+	display: block;
+	font-size: 1rem;
+	color: #666;
+	margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+	width: 100%;
+	padding: 10px;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+  }
+  
+  .form-group textarea {
+	resize: vertical;
+  }
+  
+  button {
+	padding: 10px 20px;
+	font-size: 1rem;
+	color: #fff;
+	background-color: #007bff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  
+  button:disabled {
+	background-color: #ccc;
+  }

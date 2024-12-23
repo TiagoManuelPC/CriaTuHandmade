@@ -22,11 +22,9 @@ export class BlogComponent implements OnInit {
 
 	ngOnInit(): void {
 		console.log('Blog component initialized');
-		console.log(process.env['MONGODB_URI'])
 		this.apiService.getData('blog-posts').subscribe(
 			(response) => {
 			  this.blogPosts = response;
-			  console.log(this.blogPosts)
 			},
 			(error) => {
 			  console.error('Error fetching data:', error);
@@ -35,7 +33,6 @@ export class BlogComponent implements OnInit {
 	}
 
 	addPost(post: BlogPost): void {
-		const newItem = { title: 'the new post', post: 'New Item', date: Date.now() };
 		this.apiService.addData('blog-posts', post).subscribe((data) => {
 		this.blogPosts.push(data);
 		console.log('Item added:', data);
