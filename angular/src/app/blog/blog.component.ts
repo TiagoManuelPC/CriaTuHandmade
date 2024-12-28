@@ -17,6 +17,7 @@ export class BlogComponent implements OnInit {
 
 	newPost: BlogPost = {} as BlogPost;
 	isLoading = true;
+	isModalOpen: boolean = false;
 	constructor(private apiService: ApiService, private spinner: NgxSpinnerService) {
 		if (isDevMode()) {
 			console.log('Running in development mode');
@@ -56,4 +57,12 @@ export class BlogComponent implements OnInit {
 		// Reset the form
 		this.newPost = {} as BlogPost;
 	}
+
+	openModal(): void {
+		this.isModalOpen = true;
+	  }
+	
+	  closeModal(): void {
+		this.isModalOpen = false;
+	  }
 }
