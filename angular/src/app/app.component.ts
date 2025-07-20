@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
 	}
 
 	isDevMode(): any {
-		console.log('isDevMode:', isDevMode());
+		// console.log('isDevMode:', isDevMode());
 		return isDevMode();
 	}
 }
