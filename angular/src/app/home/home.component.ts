@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 	width = 'w-50'
 	imageMaxWidth = '500px';
 
-    private apiUrl = 'https://localhost:7174/WeatherForecast'; // your backend URL
+    private apiUrl = 'https://criatuhandmade.onrender.com/WeatherForecast'; // your backend URL
 
 
 	constructor(private http: HttpClient) {
