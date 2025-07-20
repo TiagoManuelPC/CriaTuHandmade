@@ -1,0 +1,61 @@
+## Build results
+bin/
+obj/
+out/
+Debug/
+Release/
+
+## .NET Core artifacts
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.sln.ide
+
+## Rider / VSCode / VS
+.idea/
+.vscode/
+.vs/
+
+## Logs
+*.log
+
+## Test results
+TestResults/
+*.coverage
+*.coveragexml
+
+## Dependency caches
+.nuget/
+packages/
+*.nupkg
+*.snupkg
+
+## Publish output
+publish/
+
+## Configuration
+appsettings.Development.json
+secrets.json
+
+## OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+
+## Docker
+**/docker-compose.override.yml
+
+## Others
+*.db
+*.sqlite
+.env
+.env.*
+*.bak
