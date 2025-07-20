@@ -1,5 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { GalleryItem, ImageItem } from 'ng-gallery';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
 	selector: 'app-home-component',
@@ -14,7 +20,10 @@ export class HomeComponent implements OnInit {
 	width = 'w-50'
 	imageMaxWidth = '500px';
 
-	constructor() {
+    private apiUrl = 'https://localhost:7174/WeatherForecast'; // your backend URL
+
+
+	constructor(private http: HttpClient) {
 		this.onResize()
 	}
 
@@ -77,7 +86,14 @@ export class HomeComponent implements OnInit {
 	];
 
 	ngOnInit(): void {
+    console.log(this.getProducts().subscribe((data) => {
+      console.log(data);
+    }));
 	}
+
+   getProducts() {
+    return this.http.get(this.apiUrl);
+  }
 
 
 	@HostListener('window:resize', ['$event'])
