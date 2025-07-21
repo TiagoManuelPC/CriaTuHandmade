@@ -3,18 +3,20 @@
 		<p style="color: white"> Loading... </p>
 	</ngx-spinner>
 	<div class="blog-header">
-		<h1>Our Blog</h1><button (click)="openModal()">Add New Post</button>
+		<h1>Our Blog</h1>
+    <button (click)="openModal()">Add New Post</button>
 		<p>Stay updated with our latest news and articles</p>
-		
+
 	</div>
 
 	<div class="blog-content">
 		<div class="blog-posts">
 			<div class="blog-post" *ngFor="let post of blogPosts">
 				<h2>{{ post.title }}</h2>
+        <p class="post-content">{{ post.content }}</p>
 
-				<p class="post-excerpt">{{ post.post }}</p>
-				<p class="post-date">{{ post.date | date: 'dd MMMM yyyy' }}</p>
+				<!-- <p class="post-excerpt">{{ post.post }}</p>
+				<p class="post-date">{{ post.date | date: 'dd MMMM yyyy' }}</p> -->
 				<!-- <a [routerLink]="['/blog', post]" class="read-more">Read More</a> -->
 			</div>
 		</div>
@@ -46,7 +48,7 @@
 			</div>
 			<div class="form-group">
 				<label for="post">Post</label>
-				<textarea id="post" name="post" [(ngModel)]="newPost.post" required></textarea>
+				<textarea id="post" name="post" [(ngModel)]="newPost.content" required></textarea>
 			</div>
 			<button type="submit" [disabled]="!postForm.form.valid">Submit</button>
 		</form>

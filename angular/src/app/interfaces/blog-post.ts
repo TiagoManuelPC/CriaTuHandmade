@@ -1,6 +1,7 @@
 export interface BlogPost {
     _id: string | undefined;
     title: string;
-    post: string;
-    date: number;
+    content: string;
+    createdAt: string;
+    updatedAt: string;
   }

@@ -1,5 +1,8 @@
-using API.Data;
+using dotnet.Data;
+using dotnet.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using AutoMapper; // Ensure AutoMapper namespace is included
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,11 @@ builder.Services.AddCors(options =>
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
+
+builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
+
+// Fix for CS1503: Provide a valid configuration action for AutoMapper
+builder.Services.AddAutoMapper(cfg => cfg.AddMaps(typeof(Program).Assembly));
 
 // Add services to the container.
 builder.Services.AddControllers();
