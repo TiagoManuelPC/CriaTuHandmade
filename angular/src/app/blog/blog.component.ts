@@ -3,6 +3,8 @@ import { ApiService } from '../api.service';
 import { BlogPost } from '../interfaces/blog-post';
 import { isDevMode } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -18,7 +20,10 @@ export class BlogComponent implements OnInit {
 	newPost: BlogPost = {} as BlogPost;
 	isLoading = true;
 	isModalOpen: boolean = false;
-	constructor(private apiService: ApiService, private spinner: NgxSpinnerService) {
+  // baseUrl = 'https://localhost:7174/'; // Serverless function URL
+  baseUrl = 'https://criatuhandmade.onrender.com/'; // Serverless function URL
+
+	constructor(private apiService: ApiService, private spinner: NgxSpinnerService, private http: HttpClient) {
 		if (isDevMode()) {
 			console.log('Running in development mode');
 		} else {
@@ -28,10 +33,11 @@ export class BlogComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.spinner.show();
-		this.apiService.getData('blog-posts').subscribe(
+    // BlogPost/createPost
+		this.getPosts().subscribe(
 			(response: BlogPost[]) => {
-				this.blogPosts = response.sort((a, b) => b.date - a.date);
-			},
+				// this.blogPosts = response.sort((a, b) => b.createdAt - a.createdAt);
+        this.blogPosts = response.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());},
 			(error) => {
 				console.error('Error fetching data:', error);
 			}
@@ -42,16 +48,27 @@ export class BlogComponent implements OnInit {
 		}, 500);
 	}
 
-	addPost(post: BlogPost): void {
-		this.apiService.addData('blog-posts', post).subscribe((data) => {
-			this.blogPosts.unshift(data);
-			console.log('Item added:', data);
+  createPost(post: BlogPost): Observable<any> {
+    return this.http.post(`${this.baseUrl}BlogPost/createPost`, post);
+  }
 
-		});
+  getPosts(): Observable<BlogPost[]> {
+    return this.http.get<BlogPost[]>(`${this.baseUrl}BlogPost/getBlogPosts`);
+  }
+
+	addPost(post: BlogPost): void {
+		this.createPost(post).subscribe(
+      (response) => {
+        console.log('Post created successfully:', response);
+        this.blogPosts.push(response);
+        this.isModalOpen = false; // Close the modal after adding the post
+      },
+      (error) => {
+        console.error('Error creating post:', error);
+      });
 	}
 
 	onSubmit(): void {
-		this.newPost.date = Date.now();
 		this.addPost(this.newPost);
 
 		// Reset the form
@@ -60,9 +77,9 @@ export class BlogComponent implements OnInit {
 
 	openModal(): void {
 		this.isModalOpen = true;
-	  }
-	
-	  closeModal(): void {
+	}
+
+	closeModal(): void {
 		this.isModalOpen = false;
-	  }
+	}
 }
