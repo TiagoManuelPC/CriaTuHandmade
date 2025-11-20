@@ -61,13 +61,13 @@
 					</li>
 				</ul>
 			</div>
-			<button class="menu-toggle" (click)="toggleMenu()">☰</button>
+			<button class="menu-toggle" (click)="toggleMenu()" *ngIf="isDevMode()">☰</button>
 		</div>
 	</div>
 
 
-	<div class="content-container" (click)="closeMenu()" *ngIf="isDevMode()">
-		<div class="side-menu" [class.open]="isMenuOpen" (click)="$event.stopPropagation()">
+	<div class="content-container" (click)="closeMenu()">
+		<div class="side-menu" [class.open]="isMenuOpen" (click)="$event.stopPropagation()" *ngIf="isDevMode()">
 			<button class="close-btn" (click)="toggleMenu()">×</button>
 			<ul>
 				<li>

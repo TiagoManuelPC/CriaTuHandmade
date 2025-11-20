@@ -1,16 +1,11 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GalleryItem, ImageItem } from 'ng-gallery';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-
-@Injectable({
-	providedIn: 'root'
-})
 
 @Component({
 	selector: 'app-home-component',
 	templateUrl: './home.component.html',
-	styleUrl: './home.component.scss',
+	styleUrls: ['./home.component.scss'],
 	standalone: false
 })
 export class HomeComponent implements OnInit {
@@ -24,7 +19,9 @@ export class HomeComponent implements OnInit {
 
 
 	constructor(private http: HttpClient) {
-		this.onResize()
+		this.onResize();
+		// attach a resize listener without using HostListener decorator
+		window.addEventListener('resize', () => this.onResize());
 	}
 
 	images: GalleryItem[] = [
@@ -96,7 +93,6 @@ export class HomeComponent implements OnInit {
 	}
 
 
-	@HostListener('window:resize', ['$event'])
 	onResize() {
 		this.isMobile = window.innerWidth <= 1080;
 		this.isMobile ? this.addMovileView() : this.addDesktopView();
