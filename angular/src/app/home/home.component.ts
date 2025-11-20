@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 
 @Component({
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 	width = 'w-50'
 	imageMaxWidth = '500px';
 
-    private apiUrl = 'https://criatuhandmade.onrender.com/WeatherForecast'; // your backend URL
+	private apiUrl = 'https://criatuhandmade.onrender.com/WeatherForecast'; // your backend URL
 
 
 	constructor(private http: HttpClient) {
@@ -86,21 +86,21 @@ export class HomeComponent implements OnInit {
 	];
 
 	ngOnInit(): void {
-    console.log(this.getProducts().subscribe((data) => {
-      console.log(data);
-    }));
+		console.log(this.getProducts().subscribe((data) => {
+			console.log(data);
+		}));
 	}
 
-   getProducts() {
-    return this.http.get(this.apiUrl);
-  }
+	getProducts() {
+		return this.http.get(this.apiUrl);
+	}
 
 
 	@HostListener('window:resize', ['$event'])
-  	onResize() {
-    	this.isMobile = window.innerWidth <= 1080;
+	onResize() {
+		this.isMobile = window.innerWidth <= 1080;
 		this.isMobile ? this.addMovileView() : this.addDesktopView();
-  	}
+	}
 
 	addMovileView() {
 		this.width = 'w-75';

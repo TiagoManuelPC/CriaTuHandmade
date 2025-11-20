@@ -66,7 +66,7 @@
 	</div>
 
 
-	<div class="content-container" (click)="closeMenu()">
+	<div class="content-container" (click)="closeMenu()" *ngIf="isDevMode()">
 		<div class="side-menu" [class.open]="isMenuOpen" (click)="$event.stopPropagation()">
 			<button class="close-btn" (click)="toggleMenu()">×</button>
 			<ul>
