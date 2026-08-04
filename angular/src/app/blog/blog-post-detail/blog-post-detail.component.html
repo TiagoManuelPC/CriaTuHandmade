@@ -1,0 +1,17 @@
+<div class="post-detail-container">
+	<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="ball-atom" [fullScreen]="true">
+		<p style="color: white"> Loading... </p>
+	</ngx-spinner>
+
+	<a routerLink="/blog" class="back-link">← Back to blog</a>
+
+	<article class="post-detail" *ngIf="post">
+		<h1>{{ post.title }}</h1>
+		<p class="post-date">{{ post.createdAt | date: 'dd MMMM yyyy' }}</p>
+		<div class="post-content">{{ post.content }}</div>
+	</article>
+
+	<div class="empty-state" *ngIf="notFound">
+		<p>We couldn't find that post.</p>
+	</div>
+</div>

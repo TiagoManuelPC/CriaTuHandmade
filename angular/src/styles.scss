@@ -1,13 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Design tokens (colors, fonts, radii, shadows) and shared reusable classes. */
+@import "styles/tokens";
+@import "styles/shared";
+
 /* Importing Bootstrap SCSS file. */
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 /* Importing Datepicker SCSS file. */
-@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.scss";
+// removed: unused datepicker
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+	margin: 0;
+	font-family: var(--font-body);
+	background-color: var(--color-bg);
+	background-image: radial-gradient(circle, var(--color-border) 1px, transparent 1.4px);
+	background-size: 16px 16px;
+	color: var(--color-text);
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-heading);
+}
 
 .tab-container {
     width: 100%;

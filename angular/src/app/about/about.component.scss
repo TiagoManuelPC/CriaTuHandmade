@@ -2,42 +2,28 @@
 	padding: 20px;
   }
 
-  .about-header {
-	text-align: center;
-	margin-bottom: 40px;
-  }
-
-  .about-header h1 {
-	font-size: 2.5rem;
-	color: #333;
-  }
-
-  .about-header p {
-	font-size: 1.2rem;
-	color: #666;
-  }
-
   .about-section {
 	margin-bottom: 40px;
   }
 
   .about-section h2 {
+	font-family: var(--font-heading);
 	font-size: 2rem;
-	color: #333;
+	color: var(--color-heading);
 	margin-bottom: 20px;
   }
 
   .about-section p {
 	font-size: 1rem;
-	color: #666;
+	color: var(--color-text-muted);
 	margin-bottom: 20px;
   }
 
   .about-section img {
 	width: 100%;
 	height: auto;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-sm);
   }
 
   .team-members {
@@ -56,16 +42,17 @@
 	height: 150px;
 	border-radius: 50%;
 	object-fit: cover;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow-sm);
 	margin-bottom: 10px;
   }
 
   .team-member h3 {
+	font-family: var(--font-heading);
 	font-size: 1.5rem;
-	color: #333;
+	color: var(--color-heading);
   }
 
   .team-member p {
 	font-size: 1rem;
-	color: #666;
+	color: var(--color-text-muted);
   }

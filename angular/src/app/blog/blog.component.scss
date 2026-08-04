@@ -1,156 +1,133 @@
 .blog-container {
 	padding: 20px;
-  }
+	max-width: 720px;
+	margin: 0 auto;
+}
 
-  .blog-header {
-	text-align: center;
-	margin-bottom: 40px;
-  }
+.page-header .btn-brand {
+	margin-top: 8px;
+}
 
-  .blog-header h1 {
-	font-size: 2.5rem;
-	color: #333;
-  }
-
-  .blog-header p {
-	font-size: 1.2rem;
-	color: #666;
-  }
-
-  .blog-content {
+.blog-posts {
 	display: flex;
-	justify-content: space-between;
-  }
+	flex-direction: column;
+	gap: 20px;
+}
 
-  .blog-posts {
-	flex: 3;
-	margin-right: 20px;
-  }
+.blog-post {
+	background-color: var(--color-surface-alt);
+	padding: 24px;
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-sm);
+	text-align: left;
+}
 
-  .blog-post {
-	background-color: #f8f9fa;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	margin-bottom: 20px;
-  }
+.blog-post h2 {
+	font-family: var(--font-heading);
+	font-size: 1.6rem;
+	color: var(--color-heading);
+	margin-bottom: 4px;
+}
 
-  .blog-post h2 {
-	font-size: 1.8rem;
-	color: #333;
-  }
+.blog-post .post-date {
+	font-size: 0.85rem;
+	color: var(--color-text-muted);
+	margin-bottom: 12px;
+}
 
-  .blog-post .post-date {
-	font-size: 0.9rem;
-	color: #999;
-	margin-bottom: 10px;
-  }
-
-  .blog-post .post-excerpt {
+.blog-post .post-excerpt {
 	font-size: 1rem;
-	color: #666;
-	margin-bottom: 10px;
-  }
+	line-height: 1.6;
+	color: var(--color-text-muted);
+	margin-bottom: 12px;
+}
 
-  .blog-post .read-more {
-	font-size: 1rem;
-	color: #007bff;
+.blog-post .read-more {
+	font-family: var(--font-body);
+	font-weight: 700;
+	font-size: 0.95rem;
+	color: var(--color-teal);
 	text-decoration: none;
-  }
+}
 
-  .blog-post .read-more:hover {
+.blog-post .read-more:hover {
 	text-decoration: underline;
-  }
+}
 
-  .blog-sidebar {
-	flex: 1;
-  }
+.empty-state {
+	text-align: center;
+	color: var(--color-text-muted);
+	padding: 40px 0;
+}
 
-  .sidebar-section {
-	background-color: #f8f9fa;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.form-group {
 	margin-bottom: 20px;
-  }
+	text-align: left;
+}
 
-  .sidebar-section h3 {
-	font-size: 1.5rem;
-	color: #333;
-	margin-bottom: 10px;
-  }
-
-  .sidebar-section ul {
-	list-style: none;
-	padding: 0;
-  }
-
-  .sidebar-section ul li {
-	margin-bottom: 10px;
-  }
-
-  .sidebar-section ul li a {
-	font-size: 1rem;
-	color: #007bff;
-	text-decoration: none;
-  }
-
-  .sidebar-section ul li a:hover {
-	text-decoration: underline;
-  }
-
-  .blog-form {
-	flex: 1;
-	background-color: #f8f9fa;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .blog-form h2 {
-	font-size: 1.8rem;
-	color: #333;
-	margin-bottom: 20px;
-  }
-
-  .form-group {
-	margin-bottom: 20px;
-  }
-
-  .form-group label {
+.form-group label {
 	display: block;
 	font-size: 1rem;
-	color: #666;
+	color: var(--color-text-muted);
 	margin-bottom: 5px;
-  }
+}
 
-  .form-group input,
-  .form-group textarea {
+.form-group input,
+.form-group textarea {
 	width: 100%;
 	padding: 10px;
 	font-size: 1rem;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-  }
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	background-color: var(--color-surface);
+	color: var(--color-text);
+}
 
-  .form-group textarea {
+.form-group textarea {
 	resize: vertical;
-  }
+}
 
-  button {
-	padding: 10px 20px;
-	font-size: 1rem;
-	color: #fff;
-	background-color: #007bff;
-	border: none;
-	border-radius: 5px;
+.modal {
+	display: none;
+	position: fixed;
+	inset: 0;
+	z-index: 1100;
+	background: rgba(0, 0, 0, 0.5);
+	align-items: center;
+	justify-content: center;
+}
+
+.modal.show {
+	display: flex;
+}
+
+.modal-content {
+	background-color: var(--color-surface);
+	color: var(--color-text);
+	padding: 30px;
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-md);
+	width: 90%;
+	max-width: 480px;
+	position: relative;
+}
+
+.modal-content h2 {
+	font-family: var(--font-heading);
+	color: var(--color-heading);
+	margin-bottom: 20px;
+}
+
+.modal-content .close {
+	position: absolute;
+	top: 12px;
+	right: 18px;
+	font-size: 1.5rem;
+	line-height: 1;
 	cursor: pointer;
-  }
+	color: var(--color-text-muted);
+}
 
-  button:disabled {
-	background-color: #ccc;
-  }
-
-  /* Example CSS */
-.modal { display: none; }
-.modal.show { display: block; }
+.modal-content .close:hover {
+	color: var(--color-heading);
+}

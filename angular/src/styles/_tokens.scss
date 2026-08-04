@@ -1,0 +1,58 @@
+// Design tokens for CriaTuHandmade — colors sampled from the hand-drawn logo.
+// Light values live on :root; dark values override under [data-theme="dark"].
+// ThemeService (app/services/theme.service.ts) sets data-theme on <html>.
+
+:root {
+	--color-primary: #CC3366;
+	--color-primary-dark: #5E0626;
+	--color-teal: #0DA89C;
+	--color-teal-dark: #00444D;
+	--color-peach: #F9D1C2;
+	--color-mint: #B3E5DF;
+
+	--color-bg: #FFFBFA;
+	--color-surface: #FFFFFF;
+	--color-surface-alt: #FDF3EF;
+	--color-text: #2B2530;
+	--color-text-muted: #6B6570;
+	--color-border: #EADFDA;
+	--color-heading: var(--color-primary-dark);
+
+	--font-heading: 'Fredoka', sans-serif;
+	--font-body: 'Nunito', sans-serif;
+
+	--radius-sm: 8px;
+	--radius-md: 16px;
+	--radius-lg: 28px;
+
+	--shadow-sm: 0 2px 8px rgba(94, 6, 38, 0.08);
+	--shadow-md: 0 8px 24px rgba(94, 6, 38, 0.12);
+}
+
+:root[data-theme="dark"] {
+	--color-bg: #1B1418;
+	--color-surface: #261D22;
+	--color-surface-alt: #2E2228;
+	--color-text: #F5EDEE;
+	--color-text-muted: #C9BEC3;
+	--color-border: #3D2E34;
+	--color-heading: #F2A6C4;
+
+	--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+	--shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]):not([data-theme="dark"]) {
+		--color-bg: #1B1418;
+		--color-surface: #261D22;
+		--color-surface-alt: #2E2228;
+		--color-text: #F5EDEE;
+		--color-text-muted: #C9BEC3;
+		--color-border: #3D2E34;
+		--color-heading: #F2A6C4;
+
+		--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+		--shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+	}
+}
