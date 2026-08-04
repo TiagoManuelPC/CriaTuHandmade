@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GALLERY_CONFIG, GalleryConfig, GalleryModule } from 'ng-gallery';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
@@ -30,20 +29,12 @@ import { NgxSpinnerModule } from "ngx-spinner";
     AppRoutingModule,
     CarouselModule,
     BrowserAnimationsModule,
-    GalleryModule,
     MatIconModule,
     FormsModule,
     HttpClientModule,
     NgxSpinnerModule
   ],
   providers: [
-    {
-      provide: GALLERY_CONFIG,
-      useValue: {
-        autoHeight: true,
-        imageSize: 'cover'
-      } as GalleryConfig
-    },
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
