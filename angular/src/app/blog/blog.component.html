@@ -1,42 +1,26 @@
-<div class="blog-container"><ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="ball-atom"
-		[fullScreen]="true">
+<div class="blog-container">
+	<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="ball-atom" [fullScreen]="true">
 		<p style="color: white"> Loading... </p>
 	</ngx-spinner>
-	<div class="blog-header">
-		<h1>Our Blog</h1>
-    <button (click)="openModal()">Add New Post</button>
-		<p>Stay updated with our latest news and articles</p>
 
+	<div class="page-header">
+		<h1>Our Blog</h1>
+		<p>Stay updated with our latest news and articles</p>
+		<button class="btn-brand" (click)="openModal()">Add New Post</button>
 	</div>
 
-	<div class="blog-content">
-		<div class="blog-posts">
-			<div class="blog-post" *ngFor="let post of blogPosts">
-				<h2>{{ post.title }}</h2>
-        <p class="post-content">{{ post.content }}</p>
+	<div class="blog-posts">
+		<article class="blog-post" *ngFor="let post of blogPosts">
+			<h2>{{ post.title }}</h2>
+			<p class="post-date">{{ post.createdAt | date: 'dd MMMM yyyy' }}</p>
+			<p class="post-excerpt">{{ excerpt(post.content) }}</p>
+			<a [routerLink]="['/blog', post.id]" class="read-more">Read More</a>
+		</article>
 
-				<!-- <p class="post-excerpt">{{ post.post }}</p>
-				<p class="post-date">{{ post.date | date: 'dd MMMM yyyy' }}</p> -->
-				<!-- <a [routerLink]="['/blog', post]" class="read-more">Read More</a> -->
-			</div>
-		</div>
-
-		<!-- <div class="blog-form">
-			<h2>Add a New Post</h2>
-			<form (ngSubmit)="onSubmit()" #postForm="ngForm">
-				<div class="form-group">
-					<label for="title">Title</label>
-					<input type="text" id="title" name="title" [(ngModel)]="newPost.title" required>
-				</div>
-				<div class="form-group">
-					<label for="post">Post</label>
-					<textarea id="post" name="post" [(ngModel)]="newPost.post" required></textarea>
-				</div>
-				<button type="submit" [disabled]="!postForm.form.valid">Submit</button>
-			</form>
-		</div> -->
+		<p class="empty-state" *ngIf="!blogPosts.length">No posts yet — check back soon.</p>
 	</div>
 </div>
+
 <div class="modal" [class.show]="isModalOpen">
 	<div class="modal-content">
 		<span class="close" (click)="closeModal()">&times;</span>
@@ -50,7 +34,7 @@
 				<label for="post">Post</label>
 				<textarea id="post" name="post" [(ngModel)]="newPost.content" required></textarea>
 			</div>
-			<button type="submit" [disabled]="!postForm.form.valid">Submit</button>
+			<button type="submit" class="btn-brand" [disabled]="!postForm.form.valid">Submit</button>
 		</form>
 	</div>
 </div>

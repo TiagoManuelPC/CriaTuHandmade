@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
 import { BlogPost } from '../interfaces/blog-post';
-import { isDevMode } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
+import { BlogService } from './blog.service';
 
 @Component({
 	selector: 'app-blog-component',
@@ -13,65 +9,49 @@ import { Observable } from 'rxjs';
 	styleUrl: './blog.component.scss',
 	standalone: false
 })
-
 export class BlogComponent implements OnInit {
 	blogPosts: BlogPost[] = [];
 
 	newPost: BlogPost = {} as BlogPost;
-	isLoading = true;
 	isModalOpen: boolean = false;
-  // baseUrl = 'https://localhost:7174/'; // Serverless function URL
-  baseUrl = 'https://criatuhandmade.onrender.com/'; // Serverless function URL
 
-	constructor(private apiService: ApiService, private spinner: NgxSpinnerService, private http: HttpClient) {
-		if (isDevMode()) {
-			console.log('Running in development mode');
-		} else {
-			console.log('Running in production mode');
-		}
+	constructor(private blogService: BlogService, private spinner: NgxSpinnerService) {
 	}
 
 	ngOnInit(): void {
 		this.spinner.show();
-    // BlogPost/createPost
-		this.getPosts().subscribe(
+		this.blogService.getPosts().subscribe(
 			(response: BlogPost[]) => {
-				// this.blogPosts = response.sort((a, b) => b.createdAt - a.createdAt);
-        this.blogPosts = response.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());},
+				this.blogPosts = response.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+				this.spinner.hide();
+			},
 			(error) => {
 				console.error('Error fetching data:', error);
+				this.spinner.hide();
 			}
 		);
-		setTimeout(() => {
-			/** spinner ends after 5 seconds */
-			this.spinner.hide();
-		}, 500);
 	}
 
-  createPost(post: BlogPost): Observable<any> {
-    return this.http.post(`${this.baseUrl}BlogPost/createPost`, post);
-  }
-
-  getPosts(): Observable<BlogPost[]> {
-    return this.http.get<BlogPost[]>(`${this.baseUrl}BlogPost/getBlogPosts`);
-  }
+	excerpt(content: string, length: number = 200): string {
+		if (content.length <= length) {
+			return content;
+		}
+		return content.slice(0, length).trimEnd() + '…';
+	}
 
 	addPost(post: BlogPost): void {
-		this.createPost(post).subscribe(
-      (response) => {
-        console.log('Post created successfully:', response);
-        this.blogPosts.push(response);
-        this.isModalOpen = false; // Close the modal after adding the post
-      },
-      (error) => {
-        console.error('Error creating post:', error);
-      });
+		this.blogService.createPost(post).subscribe(
+			(response) => {
+				this.blogPosts.unshift(response);
+				this.isModalOpen = false;
+			},
+			(error) => {
+				console.error('Error creating post:', error);
+			});
 	}
 
 	onSubmit(): void {
 		this.addPost(this.newPost);
-
-		// Reset the form
 		this.newPost = {} as BlogPost;
 	}
 

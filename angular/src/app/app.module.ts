@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
 import { BlogComponent } from './blog/blog.component';
+import { BlogPostDetailComponent } from './blog/blog-post-detail/blog-post-detail.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +21,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     AboutComponent,
     ServicesComponent,
     BlogComponent,
+    BlogPostDetailComponent,
     ContactsComponent
   ],
   imports: [
