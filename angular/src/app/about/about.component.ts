@@ -1,5 +1,4 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { GalleryItem, ImageItem } from 'ng-gallery';
 
 @Component({
 	selector: 'app-about-component',

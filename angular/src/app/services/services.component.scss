@@ -7,21 +7,6 @@
 	text-align: center;
 }
 
-.services-header {
-	text-align: center;
-	margin-bottom: 40px;
-}
-
-.services-header h1 {
-	font-size: 2.5rem;
-	color: #333;
-}
-
-.services-header p {
-	font-size: 1.2rem;
-	color: #666;
-}
-
 .service-section {
 	margin-bottom: 40px;
 }
@@ -32,13 +17,14 @@
 }
 
 .section-header h2 {
+	font-family: var(--font-heading);
 	font-size: 2rem;
-	color: #333;
+	color: var(--color-heading);
 }
 
 .section-header p {
 	font-size: 1rem;
-	color: #666;
+	color: var(--color-text-muted);
 }
 
 .services-cards {
@@ -77,14 +63,14 @@
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
-	border-radius: 10px;
+	border-radius: var(--radius-md);
 	overflow: hidden;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--shadow-md);
 	border: none;
 }
 
 .card-front {
-	background-color: #fff;
+	background-color: var(--color-surface);
 }
 
 .card-front img {
@@ -105,7 +91,7 @@
 }
 
 .card-back {
-	background-color: #CC3366;
+	background-color: var(--color-primary);
 	color: #fff;
 	transform: rotateY(180deg);
 	display: flex;

@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { isDevMode } from '@angular/core';
+import { ThemeService } from './theme.service';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -11,7 +12,15 @@ export class AppComponent implements OnInit {
 	isScrolled: boolean = false;
 	isMenuOpen: boolean = false;
 
-	constructor() {
+	constructor(private themeService: ThemeService) {
+	}
+
+	get isDarkTheme(): boolean {
+		return this.themeService.theme === 'dark';
+	}
+
+	toggleTheme() {
+		this.themeService.toggle();
 	}
 
 	@HostListener('window:scroll', [])
