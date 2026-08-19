@@ -1,8 +1,14 @@
 [build]
 base = "angular"
   publish = "dist/browser"
-  functions = "netlify/functions" 
+  functions = "netlify/functions"
   command = "ng build"
+
+[dev]
+  framework = "#custom"
+  command = "ng serve"
+  targetPort = 4200
+  port = 8888
 
 [[redirects]]
   from = "/*"

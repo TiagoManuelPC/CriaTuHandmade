@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+interface ServiceCategory {
+	icon: string;
+	title: string;
+	description: string;
+	etsySearch: string;
+}
+
 @Component({
 	selector: 'app-services-component',
 	templateUrl: './services.component.html',
@@ -8,115 +15,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesComponent implements OnInit {
 
-	serviceSections = [
-		{
-			title: 'General Services',
-			description: 'Explore our general services that cater to a wide range of needs.',
-			services: [
-				{
-					image: 'assets/service-images/hat.webp',
-					title: 'Hat',
-					description: 'Description for Hat'
-				},
-				{
-					image: 'assets/service-images/mug.webp',
-					title: 'Mug',
-					description: 'Description for Mug'
-				},
-				{
-					image: 'assets/service-images/plate.webp',
-					title: 'Plate',
-					description: 'Description for Plate'
-				},
+	etsyShopUrl = 'https://www.etsy.com/uk/shop/CriaTuHandmade';
 
-			]
+	// The only real product photography in the repo today — used to feature
+	// the Christmas collection. Other categories don't have real photos yet,
+	// so they're presented as icon cards instead of stock/placeholder images.
+	christmasPhotos: string[] = [
+		'assets/images/xmax (2).jpeg',
+		'assets/images/xmax (5).jpeg',
+		'assets/images/xmax (9).jpeg',
+	];
+
+	categories: ServiceCategory[] = [
+		{
+			icon: '🐣',
+			title: 'Easter Ornaments',
+			description: 'Felt Easter eggs in every colour, personalised with names or letters, plus bunny decorations for the Easter tree.',
+			etsySearch: 'easter'
 		},
 		{
-			title: 'Cricut Services',
-			description: 'Discover our specialized Cricut services for custom designs and creations.',
-			services: [
-				{
-					image: 'assets/service-images/hat.webp',
-					title: 'Hat',
-					description: 'Description for Hat'
-				},
-				{
-					image: 'assets/service-images/mug.webp',
-					title: 'Mug',
-					description: 'Description for Mug'
-				},
-				{
-					image: 'assets/service-images/plate.webp',
-					title: 'Plate',
-					description: 'Description for Plate'
-				},
-				{
-					image: 'assets/service-images/tshirt.jpeg',
-					title: 'T-Shirt',
-					description: 'Description for T-Shirt'
-				}
-			]
+			icon: '🐝',
+			title: 'Felt Animal Ornaments',
+			description: 'Bees, ladybugs, and quirky seagulls — cute felt characters for year-round hanging.',
+			etsySearch: 'bee'
 		},
 		{
-			title: 'Cricut Services',
-			description: 'Discover our specialized Cricut services for custom designs and creations.',
-			services: [
-				{
-					image: 'assets/service-images/hat.webp',
-					title: 'Hat',
-					description: 'Description for Hat'
-				},
-				{
-					image: 'assets/service-images/mug.webp',
-					title: 'Mug',
-					description: 'Description for Mug'
-				},
-				{
-					image: 'assets/service-images/plate.webp',
-					title: 'Plate',
-					description: 'Description for Plate'
-				},
-				{
-					image: 'assets/service-images/tshirt.jpeg',
-					title: 'T-Shirt',
-					description: 'Description for T-Shirt'
-				}
-			]
+			icon: '🎁',
+			title: 'Personalised Gifts & Accessories',
+			description: 'Friendship bracelets, name bookmarks, coasters, and badges — small handmade gifts with a personal touch.',
+			etsySearch: 'personalised gift'
 		},
 		{
-			title: 'Cricut Services',
-			description: 'Discover our specialized Cricut services for custom designs and creations.',
-			services: [
-				{
-					image: 'assets/service-images/hat.webp',
-					title: 'Hat',
-					description: 'Description for Hat'
-				},
-				{
-					image: 'assets/service-images/mug.webp',
-					title: 'Mug',
-					description: 'Description for Mug'
-				},
-				{
-					image: 'assets/service-images/plate.webp',
-					title: 'Plate',
-					description: 'Description for Plate'
-				},
-				{
-					image: 'assets/service-images/tshirt.jpeg',
-					title: 'T-Shirt',
-					description: 'Description for T-Shirt'
-				}
-			]
+			icon: '🏡',
+			title: 'Home Décor',
+			description: 'Felt hanging decorations for the home, all year round.',
+			etsySearch: 'home decor'
+		},
+		{
+			icon: '💌',
+			title: "Valentine's & Mother's Day",
+			description: 'Embroidered hearts and "Mum" hangings — thoughtful handmade gifts for the people you love.',
+			etsySearch: 'heart'
 		}
 	];
+
 	constructor() {
 	}
 
 	ngOnInit(): void {
 	}
 
-	openService(service: any, section: any) {
-		console.log(service, section);
+	etsySearchUrl(query: string): string {
+		return `${this.etsyShopUrl}?search_query=${encodeURIComponent(query)}`;
 	}
 }

@@ -6,7 +6,7 @@
 	<div class="page-header">
 		<h1>Our Blog</h1>
 		<p>Stay updated with our latest news and articles</p>
-		<button class="btn-brand" (click)="openModal()">Add New Post</button>
+		<button *ngIf="isDevMode()" class="btn-brand" (click)="openModal()">Add New Post</button>
 	</div>
 
 	<div class="blog-posts">
@@ -21,7 +21,7 @@
 	</div>
 </div>
 
-<div class="modal" [class.show]="isModalOpen">
+<div class="modal" [class.show]="isModalOpen" *ngIf="isDevMode()">
 	<div class="modal-content">
 		<span class="close" (click)="closeModal()">&times;</span>
 		<h2>Add a New Post</h2>
