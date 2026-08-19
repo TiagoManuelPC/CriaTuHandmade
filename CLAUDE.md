@@ -98,6 +98,8 @@ Orders and payment go through Etsy; this website serves as a showcase/marketing 
 - Git commands are run from the repository root.
 
 ## Other Project Docs
+- `SITE_REDESIGN_PLAN.md` — active, up-to-date plan for bringing every page to the "scrapbook" style and real business content, page by page. Check this first when working on About/Services/Contact/Blog/nav — it supersedes the stale descriptions below.
+
 Full, unabridged copies of every markdown doc in this repo (source docs + `.github/copilot-instructions.md`) are collected in **`.claude/docs/`** for reference — read from there when this file's summary isn't enough detail. Some of these predate the .NET backend removal and the comments-feature note above; where they conflict with this file, this file wins.
 
 - `CRIA_TU_BUSINESS_CONTEXT.md` — full business context (products, pricing, USPs, seasonal strategy, content guidance)

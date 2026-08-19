@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { isDevMode } from '@angular/core';
 import { BlogPost } from '../interfaces/blog-post';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BlogService } from './blog.service';
@@ -12,7 +13,7 @@ import { BlogService } from './blog.service';
 export class BlogComponent implements OnInit {
 	blogPosts: BlogPost[] = [];
 
-	newPost: BlogPost = {} as BlogPost;
+	newPost: Pick<BlogPost, 'title' | 'content'> = { title: '', content: '' };
 	isModalOpen: boolean = false;
 
 	constructor(private blogService: BlogService, private spinner: NgxSpinnerService) {
@@ -39,7 +40,11 @@ export class BlogComponent implements OnInit {
 		return content.slice(0, length).trimEnd() + '…';
 	}
 
-	addPost(post: BlogPost): void {
+	// Posting is only reachable while isDevMode() gates the button — there's
+	// no auth system yet, so this stays dev-only until one exists (see
+	// SITE_REDESIGN_PLAN.md). The backend function itself has no auth either,
+	// this is a convenience gate, not a security boundary.
+	addPost(post: Pick<BlogPost, 'title' | 'content'>): void {
 		this.blogService.createPost(post).subscribe(
 			(response) => {
 				this.blogPosts.unshift(response);
@@ -52,7 +57,7 @@ export class BlogComponent implements OnInit {
 
 	onSubmit(): void {
 		this.addPost(this.newPost);
-		this.newPost = {} as BlogPost;
+		this.newPost = { title: '', content: '' };
 	}
 
 	openModal(): void {
@@ -61,5 +66,9 @@ export class BlogComponent implements OnInit {
 
 	closeModal(): void {
 		this.isModalOpen = false;
+	}
+
+	isDevMode(): boolean {
+		return isDevMode();
 	}
 }

@@ -1,58 +1,86 @@
-.about-container {
-	padding: 20px;
-  }
+// Content/layout specific to About — the reusable scrapbook pieces
+// (.postcard, .sticker, .sticker--tag/--round, .wall/.polaroid, .sticker-row)
+// live in styles/_shared.scss.
 
-  .about-section {
-	margin-bottom: 40px;
-  }
+.about-page {
+	padding: 52px 24px 60px;
+	max-width: 760px;
+	margin: 0 auto;
+}
 
-  .about-section h2 {
+.trust-badges {
+	margin-bottom: 48px;
+}
+
+.story-postcard {
+	max-width: 560px;
+	margin: 0 auto 56px;
+	transform: rotate(-1deg);
+	text-align: left;
+}
+
+.story-postcard p {
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: var(--color-text);
+	margin: 0 0 16px;
+}
+
+.story-postcard .signature {
 	font-family: var(--font-heading);
-	font-size: 2rem;
+	font-weight: 600;
 	color: var(--color-heading);
-	margin-bottom: 20px;
-  }
+	margin: 20px 0 0;
+}
 
-  .about-section p {
-	font-size: 1rem;
-	color: var(--color-text-muted);
-	margin-bottom: 20px;
-  }
-
-  .about-section img {
-	width: 100%;
-	height: auto;
-	border-radius: var(--radius-md);
-	box-shadow: var(--shadow-sm);
-  }
-
-  .team-members {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-  }
-
-  .team-member {
+.section {
+	margin-bottom: 56px;
 	text-align: center;
-	margin-bottom: 20px;
-  }
+}
 
-  .team-member img {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	object-fit: cover;
-	box-shadow: var(--shadow-sm);
-	margin-bottom: 10px;
-  }
-
-  .team-member h3 {
+.section h2 {
 	font-family: var(--font-heading);
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	color: var(--color-heading);
-  }
+	margin-bottom: 12px;
+}
 
-  .team-member p {
+.section>p {
 	font-size: 1rem;
 	color: var(--color-text-muted);
-  }
+	max-width: 560px;
+	margin: 0 auto 28px;
+	line-height: 1.6;
+}
+
+.values-row {
+	margin-top: 8px;
+}
+
+.cta-postcard {
+	max-width: 340px;
+	margin: 0 auto;
+	text-align: center;
+	transform: rotate(1deg);
+}
+
+.cta-postcard p {
+	color: var(--color-text-muted);
+	margin: 10px 0 18px;
+}
+
+.cta-stickers {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+.cta-stickers a:nth-child(1) {
+	transform: rotate(-6deg);
+}
+
+.cta-stickers a:nth-child(2) {
+	transform: rotate(4deg);
+}
+
