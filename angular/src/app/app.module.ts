@@ -10,6 +10,7 @@ import { ServicesComponent } from './services/services.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostDetailComponent } from './blog/blog-post-detail/blog-post-detail.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -22,7 +23,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ServicesComponent,
     BlogComponent,
     BlogPostDetailComponent,
-    ContactsComponent
+    ContactsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

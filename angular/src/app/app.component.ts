@@ -1,5 +1,4 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { isDevMode } from '@angular/core';
 import { ThemeService } from './theme.service';
 @Component({
 	selector: 'app-root',
@@ -11,6 +10,7 @@ export class AppComponent implements OnInit {
 
 	isScrolled: boolean = false;
 	isMenuOpen: boolean = false;
+	year = new Date().getFullYear();
 
 	constructor(private themeService: ThemeService) {
 	}
@@ -43,10 +43,5 @@ export class AppComponent implements OnInit {
 
 	scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}
-
-	isDevMode(): any {
-		// console.log('isDevMode:', isDevMode());
-		return isDevMode();
 	}
 }

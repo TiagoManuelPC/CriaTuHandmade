@@ -108,3 +108,44 @@
 .postcard a:hover {
 	text-decoration: underline;
 }
+
+.tagline {
+	font-size: 1.7rem;
+	line-height: 1.25;
+	font-weight: 600;
+	color: var(--color-heading);
+	max-width: 360px;
+	margin: 0 0 18px;
+	text-align: center;
+}
+
+.hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 12px;
+	margin-bottom: 26px;
+}
+
+@media (min-width: 700px) {
+	.tagline {
+		text-align: left;
+	}
+
+	.hero-actions {
+		justify-content: flex-start;
+	}
+}
+
+// On a phone the photo wall is two across, not one long column.
+@media (max-width: 480px) {
+	.wall {
+		gap: 20px 14px;
+		padding: 0;
+	}
+
+	.wall .polaroid {
+		width: calc(50% - 7px);
+		padding: 8px 8px 20px;
+	}
+}

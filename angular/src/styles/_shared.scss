@@ -249,8 +249,109 @@
 	}
 
 	&:disabled {
-		background-color: var(--color-border);
-		color: var(--color-text-muted);
+		opacity: 0.45;
 		cursor: not-allowed;
 	}
+}
+
+.btn-quiet {
+	display: inline-block;
+	padding: 8px 22px;
+	font-family: var(--font-body);
+	font-weight: 700;
+	font-size: 1rem;
+	color: var(--color-heading);
+	background-color: var(--color-surface);
+	border: 2px solid var(--color-peach);
+	border-radius: var(--radius-sm);
+	text-decoration: none;
+	transition: border-color 0.2s ease, transform 0.15s ease;
+
+	&:hover {
+		color: var(--color-heading);
+		border-color: var(--color-primary);
+		transform: translateY(-1px);
+	}
+}
+
+// The body font draws its arrow below the line; this one sits on it.
+.arrow {
+	font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+	display: inline-block;
+	transition: transform 0.15s ease;
+}
+
+a:hover > .arrow {
+	transform: translateX(3px);
+}
+
+// ---- The foot of every page ----
+.page-area {
+	min-height: calc(100vh - 330px);
+}
+
+.site-footer {
+	width: 100%;
+	margin-top: 56px;
+	padding: 34px 24px 26px;
+	background-color: var(--color-surface-alt);
+	border-top: 2px dashed var(--color-peach);
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+.footer-inner {
+	max-width: 860px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 18px;
+}
+
+.footer-brand {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	color: var(--color-text-muted);
+}
+
+.footer-name {
+	font-family: var(--font-heading);
+	font-weight: 600;
+	font-size: 1.35rem;
+	color: var(--color-heading);
+}
+
+.footer-links {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.footer-links .sticker:nth-child(1) { transform: rotate(-6deg); }
+.footer-links .sticker:nth-child(2) { transform: rotate(4deg); }
+.footer-links .sticker:nth-child(3) { transform: rotate(-4deg); }
+
+.footer-nav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 6px 22px;
+}
+
+.footer-nav a {
+	color: var(--color-heading);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.footer-nav a:hover {
+	color: var(--color-primary);
+	text-decoration: underline;
+}
+
+.footer-small {
+	font-size: 0.82rem;
+	color: var(--color-text-muted);
 }

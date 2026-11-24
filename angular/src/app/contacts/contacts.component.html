@@ -12,7 +12,7 @@
 
 	<div class="section">
 		<h2>Send a Message</h2>
-		<p>Fill this in and it'll open in your email app, ready to send.</p>
+		<p>Write to us here and we'll reply by email.</p>
 
 		<form class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
 			<div class="form-group">
@@ -27,7 +27,11 @@
 				<label for="message">Message</label>
 				<textarea id="message" name="message" ngModel required></textarea>
 			</div>
-			<button type="submit" class="btn-brand" [disabled]="!contactForm.valid">Open in Email</button>
+			<!-- left empty by people; filled in by robots, whose messages are then dropped -->
+			<input type="text" name="website" ngModel tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
+			<button type="submit" class="btn-brand" [disabled]="!contactForm.valid || state === 'sending'">{{ state === 'sending' ? 'Sending…' : 'Send Message' }}</button>
+			<p class="form-status" *ngIf="state === 'sent'" role="status">Thank you! Your message is on its way.</p>
+			<p class="form-status" *ngIf="state === 'fallback'" role="status">We couldn't send it from here, so it has opened in your email app instead.</p>
 		</form>
 	</div>
 

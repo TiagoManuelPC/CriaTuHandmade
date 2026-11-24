@@ -1,0 +1,25 @@
+<div class="admin-page">
+	<div class="postcard admin-card">
+		<div class="stamp"></div>
+		<div class="eyebrow">Staff only</div>
+
+		<ng-container *ngIf="auth.signedIn; else signInForm">
+			<h1>Hello!</h1>
+			<p>Signed in as {{ auth.email }}.</p>
+			<a routerLink="/blog" class="btn-brand">Write a blog post</a>
+			<button type="button" class="link-button" (click)="auth.signOut()">Sign out</button>
+		</ng-container>
+
+		<ng-template #signInForm>
+			<h1>Sign in</h1>
+			<form (ngSubmit)="signIn()" #f="ngForm">
+				<label for="admin-email">Email</label>
+				<input id="admin-email" type="email" name="email" [(ngModel)]="email" required autocomplete="username">
+				<label for="admin-password">Password</label>
+				<input id="admin-password" type="password" name="password" [(ngModel)]="password" required autocomplete="current-password">
+				<p class="form-error" *ngIf="error">{{ error }}</p>
+				<button type="submit" class="btn-brand" [disabled]="!f.form.valid || busy">{{ busy ? 'Signing in…' : 'Sign in' }}</button>
+			</form>
+		</ng-template>
+	</div>
+</div>

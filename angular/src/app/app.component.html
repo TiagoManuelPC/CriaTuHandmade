@@ -40,27 +40,16 @@
 		</div>
 		<div class="navigation d-flex align-items-center">
 
-			<div *ngIf="isDevMode()" class="tab-menu">
+			<div class="tab-menu">
 				<ul>
 					<li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
 					<li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
 					<li><a routerLink="/services" routerLinkActive="active-link">Services</a></li>
-					<li><a routerLink="/shop" routerLinkActive="active-link">Shop</a></li>
 					<li><a routerLink="/blog" routerLinkActive="active-link">Blog</a></li>
 					<li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
 				</ul>
 			</div>
 
-			<div class="navigation-icons" *ngIf="isDevMode()">
-				<ul>
-					<li>
-						<a aria-current="page" href="#"><i class="fa fa-user"></i></a>
-					</li>
-					<li>
-						<a aria-current="page" href="#"><i class="fa fa-search"></i></a>
-					</li>
-				</ul>
-			</div>
 			<button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode'">
 				{{ isDarkTheme ? '☀' : '☾' }}
 			</button>
@@ -80,7 +69,6 @@
 				</li>
 				<li><a routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">About</a></li>
 				<li><a routerLink="/services" routerLinkActive="active-link" (click)="closeMenu()">Services</a></li>
-				<li><a routerLink="/shop" routerLinkActive="active-link" (click)="closeMenu()">Shop</a></li>
 				<li><a routerLink="/blog" routerLinkActive="active-link" (click)="closeMenu()">Blog</a></li>
 				<li><a routerLink="/contact" routerLinkActive="active-link" (click)="closeMenu()">Contact</a></li>
 			</ul>
@@ -90,8 +78,36 @@
 		 <button class="scroll-top" [class.show]="isScrolled" [class.hide]="!isScrolled" (click)="scrollToTop()">↑</button>
 
 
-		<div class="w-100">
+		<div class="w-100 page-area">
 			<router-outlet />
 		</div>
+
+		<footer class="site-footer">
+			<div class="footer-inner">
+				<div class="footer-brand">
+					<span class="footer-name">Cria Tu Handmade</span>
+					<span>Handmade felt decorations, made to order in Witney, England.</span>
+				</div>
+				<div class="footer-links">
+					<a href="https://www.instagram.com/cria.tu/" target="_blank" class="sticker sticker--round" aria-label="Instagram">
+						<img src="assets/social-logos/Instagram_Glyph_Gradient.png" alt="">
+					</a>
+					<a href="https://www.etsy.com/uk/shop/CriaTuHandmade" target="_blank" class="sticker sticker--tag" aria-label="Etsy">
+						<img src="assets/social-logos/etsy.png" alt="">
+					</a>
+					<a href="https://www.facebook.com/criatu.art" target="_blank" class="sticker sticker--round" aria-label="Facebook">
+						<img src="assets/social-logos/Facebook_Logo_Primary.png" alt="">
+					</a>
+				</div>
+				<nav class="footer-nav" aria-label="Footer">
+					<a routerLink="/about">About</a>
+					<a routerLink="/services">Services</a>
+					<a routerLink="/blog">Blog</a>
+					<a routerLink="/contact">Contact</a>
+					<a href="mailto:cria.tu@outlook.com">cria.tu&#64;outlook.com</a>
+				</nav>
+				<div class="footer-small">© {{ year }} Cria Tu Handmade</div>
+			</div>
+		</footer>
 	</div>
 </div>

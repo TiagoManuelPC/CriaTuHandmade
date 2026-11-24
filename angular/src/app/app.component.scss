@@ -87,17 +87,21 @@
 .tab-menu>ul>li>a {
 	text-decoration: none;
 	color: #fff;
-	padding: 10px 15px;
+	padding: 5px 14px;
+	margin: 5px 2px;
+	border-radius: 999px;
 	display: block;
-	transition: color 0.3s ease;
+	transition: background-color 0.2s ease;
 }
 
 .tab-menu>ul>li>a:hover {
-	color: var(--color-primary-dark);
+	background-color: rgba(255, 255, 255, 0.16);
 }
 
 .tab-menu>ul>li>a.active-link {
-	color: var(--color-primary-dark);
+	background-color: #fff;
+	color: var(--color-primary);
+	font-weight: 700;
 	/* Change color for active and hover state */
 }
 
@@ -298,7 +302,7 @@
 
 @media (min-width: 1200px) {
 	.full-screen-container {
-		padding-bottom: 90px;
+		padding-bottom: 0;
 	}
 	
 }

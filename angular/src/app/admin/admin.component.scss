@@ -1,0 +1,61 @@
+.admin-page {
+	padding: 52px 24px 60px;
+}
+
+.admin-card {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 30px;
+	text-align: left;
+	transform: rotate(-0.8deg);
+}
+
+.admin-card h1 {
+	font-size: 1.8rem;
+	color: var(--color-heading);
+	margin: 6px 0 16px;
+}
+
+.admin-card label {
+	display: block;
+	font-size: 0.95rem;
+	color: var(--color-text-muted);
+	margin-bottom: 4px;
+}
+
+.admin-card input {
+	width: 100%;
+	padding: 10px;
+	font-size: 1rem;
+	margin-bottom: 16px;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	background-color: var(--color-surface);
+	color: var(--color-text);
+}
+
+.admin-card p {
+	font-size: 1rem;
+	color: var(--color-text-muted);
+}
+
+.admin-card .btn-brand {
+	width: 100%;
+	text-align: center;
+}
+
+.link-button {
+	display: block;
+	margin: 14px auto 0;
+	background: none;
+	border: none;
+	color: var(--color-teal);
+	font-weight: 700;
+	font-size: 0.95rem;
+	cursor: pointer;
+}
+
+.form-error {
+	color: var(--color-primary);
+	font-weight: 600;
+}

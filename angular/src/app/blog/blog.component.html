@@ -1,27 +1,34 @@
-<div class="blog-container">
+<div class="blog-page scrapbook-page">
 	<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="ball-atom" [fullScreen]="true">
 		<p style="color: white"> Loading... </p>
 	</ngx-spinner>
 
 	<div class="page-header">
 		<h1>Our Blog</h1>
-		<p>Stay updated with our latest news and articles</p>
-		<button *ngIf="isDevMode()" class="btn-brand" (click)="openModal()">Add New Post</button>
+		<p>News from the sewing table: new makes, fairs and how things are made.</p>
+		<button *ngIf="auth.signedIn" class="btn-brand" (click)="openModal()">Add New Post</button>
 	</div>
 
 	<div class="blog-posts">
-		<article class="blog-post" *ngFor="let post of blogPosts">
-			<h2>{{ post.title }}</h2>
-			<p class="post-date">{{ post.createdAt | date: 'dd MMMM yyyy' }}</p>
+		<article class="postcard blog-post" *ngFor="let post of blogPosts">
+			<div class="stamp"></div>
+			<div class="eyebrow">{{ post.createdAt | date: 'dd MMMM yyyy' }}</div>
+			<h2><a [routerLink]="['/blog', post.id]" queryParamsHandling="preserve">{{ post.title }}</a></h2>
 			<p class="post-excerpt">{{ excerpt(post.content) }}</p>
-			<a [routerLink]="['/blog', post.id]" class="read-more">Read More</a>
+			<a [routerLink]="['/blog', post.id]" queryParamsHandling="preserve" class="read-more">Read more <span class="arrow">→</span></a>
 		</article>
 
-		<p class="empty-state" *ngIf="!blogPosts.length">No posts yet — check back soon.</p>
+		<div class="postcard empty-card" *ngIf="!blogPosts.length">
+			<div class="stamp"></div>
+			<div class="eyebrow">Nothing pinned up yet</div>
+			<h2>The first post is still being stitched</h2>
+			<p>Until then, the newest makes go up on
+				<a href="https://www.instagram.com/cria.tu/" target="_blank">Instagram</a> first.</p>
+		</div>
 	</div>
 </div>
 
-<div class="modal" [class.show]="isModalOpen" *ngIf="isDevMode()">
+<div class="modal" [class.show]="isModalOpen" *ngIf="auth.signedIn">
 	<div class="modal-content">
 		<span class="close" (click)="closeModal()">&times;</span>
 		<h2>Add a New Post</h2>
@@ -32,9 +39,10 @@
 			</div>
 			<div class="form-group">
 				<label for="post">Post</label>
-				<textarea id="post" name="post" [(ngModel)]="newPost.content" required></textarea>
+				<textarea id="post" name="post" rows="8" [(ngModel)]="newPost.content" required></textarea>
 			</div>
-			<button type="submit" class="btn-brand" [disabled]="!postForm.form.valid">Submit</button>
+			<p class="form-error" *ngIf="saveError">{{ saveError }}</p>
+			<button type="submit" class="btn-brand" [disabled]="!postForm.form.valid">Publish</button>
 		</form>
 	</div>
 </div>

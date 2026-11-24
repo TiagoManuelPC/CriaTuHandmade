@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contacts',
@@ -9,18 +10,31 @@ import { Component } from '@angular/core';
 })
 export class ContactsComponent {
   contactEmail = 'cria.tu@outlook.com';
+  state: 'idle' | 'sending' | 'sent' | 'fallback' = 'idle';
 
-  // There's no backend to send this to, so instead of silently swallowing
-  // the message (the old behaviour), open it as a pre-filled email — an
-  // honest "it actually does something" without needing new infrastructure.
+  constructor(private http: HttpClient) {}
+
+  // The message goes to the `contact` function, which emails it. If that function
+  // is not set up (no email key in its environment) or fails, the old behaviour
+  // takes over: the message opens in the visitor's own mail app, ready to send.
   onSubmit(form: any) {
-    if (!form.valid) {
+    if (!form.valid || this.state === 'sending') {
       return;
     }
 
-    const { name, email, message } = form.value;
-    const subject = encodeURIComponent(`Message from ${name} via the website`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:${this.contactEmail}?subject=${subject}&body=${body}`;
+    const { name, email, message, website } = form.value;
+    this.state = 'sending';
+    this.http.post('/.netlify/functions/contact', { name, email, message, website }).subscribe({
+      next: () => {
+        this.state = 'sent';
+        form.resetForm();
+      },
+      error: () => {
+        this.state = 'fallback';
+        const subject = encodeURIComponent(`Message from ${name} via the website`);
+        const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+        window.location.href = `mailto:${this.contactEmail}?subject=${subject}&body=${body}`;
+      }
+    });
   }
 }

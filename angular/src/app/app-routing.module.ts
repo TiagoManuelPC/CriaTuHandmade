@@ -6,6 +6,7 @@ import { ServicesComponent } from './services/services.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostDetailComponent } from './blog/blog-post-detail/blog-post-detail.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:id', component: BlogPostDetailComponent },
   { path: 'contact', component: ContactsComponent },
+  { path: 'admin', component: AdminComponent },
   { path: '', component: HomeComponent},
   { path: '', redirectTo: '/', pathMatch: 'full' }, // Default route
   { path: '**', redirectTo: '/' } // Wildcard route for a 404 page

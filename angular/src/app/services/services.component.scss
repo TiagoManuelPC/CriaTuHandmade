@@ -53,6 +53,9 @@
 	padding: 26px 22px;
 	width: 240px;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -98,6 +101,10 @@
 	color: var(--color-text-muted);
 	line-height: 1.55;
 	margin-bottom: 14px;
+}
+
+.category-card a {
+	margin-top: auto;
 }
 
 .category-card a {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { isDevMode } from '@angular/core';
 import { BlogPost } from '../interfaces/blog-post';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BlogService } from './blog.service';
+import { AuthService } from '../auth.service';
 
 @Component({
 	selector: 'app-blog-component',
@@ -15,8 +15,9 @@ export class BlogComponent implements OnInit {
 
 	newPost: Pick<BlogPost, 'title' | 'content'> = { title: '', content: '' };
 	isModalOpen: boolean = false;
+	saveError = '';
 
-	constructor(private blogService: BlogService, private spinner: NgxSpinnerService) {
+	constructor(private blogService: BlogService, private spinner: NgxSpinnerService, public auth: AuthService) {
 	}
 
 	ngOnInit(): void {
@@ -40,24 +41,24 @@ export class BlogComponent implements OnInit {
 		return content.slice(0, length).trimEnd() + '…';
 	}
 
-	// Posting is only reachable while isDevMode() gates the button — there's
-	// no auth system yet, so this stays dev-only until one exists (see
-	// SITE_REDESIGN_PLAN.md). The backend function itself has no auth either,
-	// this is a convenience gate, not a security boundary.
+	// The button only shows to someone signed in (at /admin), and the database
+	// itself refuses a write from anyone who is not an admin.
 	addPost(post: Pick<BlogPost, 'title' | 'content'>): void {
 		this.blogService.createPost(post).subscribe(
 			(response) => {
 				this.blogPosts.unshift(response);
 				this.isModalOpen = false;
+				this.newPost = { title: '', content: '' };
 			},
 			(error) => {
 				console.error('Error creating post:', error);
+				this.saveError = 'That did not save. Are you signed in as an admin?';
 			});
 	}
 
 	onSubmit(): void {
+		this.saveError = '';
 		this.addPost(this.newPost);
-		this.newPost = { title: '', content: '' };
 	}
 
 	openModal(): void {
@@ -66,9 +67,5 @@ export class BlogComponent implements OnInit {
 
 	closeModal(): void {
 		this.isModalOpen = false;
-	}
-
-	isDevMode(): boolean {
-		return isDevMode();
 	}
 }

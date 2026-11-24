@@ -1,5 +1,5 @@
 .post-detail-container {
-	padding: 20px;
+	padding: 52px 24px 60px;
 	max-width: 720px;
 	margin: 0 auto;
 	text-align: left;
@@ -19,7 +19,17 @@
 	text-decoration: underline;
 }
 
+.post-detail {
+	max-width: none;
+	margin: 0;
+	padding: 30px 34px 36px;
+	text-align: left;
+}
+
 .post-detail h1 {
+	margin-right: 60px;
+	margin-top: 6px;
+	margin-bottom: 20px;
 	font-family: var(--font-heading);
 	font-size: 2.2rem;
 	color: var(--color-heading);

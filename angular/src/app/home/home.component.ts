@@ -1,10 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
+import { Component, HostListener } from '@angular/core';
 
 @Component({
 	selector: 'app-home-component',
@@ -12,15 +6,12 @@ import { Injectable } from '@angular/core';
 	styleUrl: './home.component.scss',
 	standalone: false
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
 	isMobile = window.innerWidth <= 1080;
 	imageMaxWidth = '260px';
 
-    private apiUrl = 'https://criatuhandmade.onrender.com/WeatherForecast'; // your backend URL
-
-
-	constructor(private http: HttpClient) {
+	constructor() {
 		this.onResize()
 	}
 
@@ -37,17 +28,6 @@ export class HomeComponent implements OnInit {
 		'assets/images/xmax (10).jpeg',
 		'assets/images/xmax (11).jpeg',
 	];
-
-	ngOnInit(): void {
-    console.log(this.getProducts().subscribe((data) => {
-      console.log(data);
-    }));
-	}
-
-   getProducts() {
-    return this.http.get(this.apiUrl);
-  }
-
 
 	@HostListener('window:resize', ['$event'])
   	onResize() {

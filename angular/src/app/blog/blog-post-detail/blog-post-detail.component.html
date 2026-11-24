@@ -3,11 +3,12 @@
 		<p style="color: white"> Loading... </p>
 	</ngx-spinner>
 
-	<a routerLink="/blog" class="back-link">← Back to blog</a>
+	<a routerLink="/blog" queryParamsHandling="preserve" class="back-link">← Back to blog</a>
 
-	<article class="post-detail" *ngIf="post">
+	<article class="postcard post-detail" *ngIf="post">
+		<div class="stamp"></div>
+		<div class="eyebrow">{{ post.createdAt | date: 'dd MMMM yyyy' }}</div>
 		<h1>{{ post.title }}</h1>
-		<p class="post-date">{{ post.createdAt | date: 'dd MMMM yyyy' }}</p>
 		<div class="post-content">{{ post.content }}</div>
 	</article>
 

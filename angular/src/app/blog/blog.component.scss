@@ -1,5 +1,8 @@
-.blog-container {
-	padding: 20px;
+// The blog in the scrapbook style: each post is a postcard pinned to the board.
+// Shared primitives (.postcard, .page-header, .btn-brand) live in styles/_shared.scss.
+
+.blog-page {
+	padding: 52px 24px 60px;
 	max-width: 720px;
 	margin: 0 auto;
 }
@@ -11,35 +14,45 @@
 .blog-posts {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 34px;
 }
 
-.blog-post {
-	background-color: var(--color-surface-alt);
-	padding: 24px;
-	border-radius: var(--radius-md);
-	box-shadow: var(--shadow-sm);
+.blog-post,
+.empty-card {
+	max-width: none;
+	margin: 0;
 	text-align: left;
+	padding: 26px 30px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.blog-post h2 {
+.blog-post:nth-child(3n + 1) { transform: rotate(-0.8deg); }
+.blog-post:nth-child(3n + 2) { transform: rotate(0.7deg); }
+.blog-post:nth-child(3n + 3) { transform: rotate(-0.4deg); }
+
+.blog-post:hover {
+	transform: rotate(0deg) scale(1.01);
+	box-shadow: var(--shadow-md);
+}
+
+.blog-post h2,
+.empty-card h2 {
 	font-family: var(--font-heading);
 	font-size: 1.6rem;
-	color: var(--color-heading);
-	margin-bottom: 4px;
+	margin: 6px 60px 10px 0;
 }
 
-.blog-post .post-date {
-	font-size: 0.85rem;
-	color: var(--color-text-muted);
-	margin-bottom: 12px;
+.blog-post h2 a {
+	color: var(--color-heading);
+	text-decoration: none;
 }
 
 .blog-post .post-excerpt {
 	font-size: 1rem;
-	line-height: 1.6;
+	line-height: 1.65;
 	color: var(--color-text-muted);
-	margin-bottom: 12px;
+	margin-bottom: 14px;
+	white-space: pre-line;
 }
 
 .blog-post .read-more {
@@ -54,10 +67,32 @@
 	text-decoration: underline;
 }
 
-.empty-state {
+.empty-card {
 	text-align: center;
+	padding: 40px 30px;
+	transform: rotate(-0.8deg);
+}
+
+.empty-card h2 {
+	margin: 8px 0 10px;
+	color: var(--color-heading);
+}
+
+.empty-card p {
+	font-size: 1rem;
 	color: var(--color-text-muted);
-	padding: 40px 0;
+	margin: 0;
+}
+
+.empty-card a {
+	color: var(--color-primary);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.form-error {
+	color: var(--color-primary);
+	font-weight: 600;
 }
 
 .form-group {
